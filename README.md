@@ -5,7 +5,7 @@
 <br/>
 
 <p>
-  <a href="#-installation"><img src="https://img.shields.io/badge/Setup-2_minutes-FF5E8A?style=for-the-badge&logo=rocket&logoColor=white" alt="Setup in 2 minutes"/></a>
+  <a href="#-installation"><img src="https://img.shields.io/badge/Setup-1_command-FF5E8A?style=for-the-badge&logo=rocket&logoColor=white" alt="Setup in 1 command"/></a>
   <a href="#-the-skill-arsenal"><img src="https://img.shields.io/badge/Skills-17-B06AFF?style=for-the-badge&logo=anthropic&logoColor=white" alt="17 skills"/></a>
   <a href="#-license"><img src="https://img.shields.io/badge/License-MIT-6A8BFF?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License"/></a>
   <a href="#-contributing"><img src="https://img.shields.io/badge/PRs-welcome-FF8A3D?style=for-the-badge&logo=github&logoColor=white" alt="PRs welcome"/></a>
@@ -20,6 +20,10 @@
 </p>
 
 ### **Summon a world-class specialist into your coding session — with one command.**
+
+```bash
+npx fable-skills add all
+```
 
 `/fable-frontend` · `/fable-backend` · `/fable-security` · `/fable-database` · `/fable-aiml` … *and 12 more*
 
@@ -36,6 +40,27 @@ Each skill is a single, dense `SKILL.md` that encodes how a *world-class special
 > You don't get a chatbot that "knows about" databases. You get the engineer who **feels physical discomfort** when they see a sequential scan on a 10-million-row table — and refactors it before it pages someone at 2 AM.
 
 Every skill is built on one shared identity layer — **Fable** — a single standard of thinking: precise, warm, production-minded, and proactive. The skills are the expertise; Fable is the discipline that runs through all of them.
+
+---
+
+## ⚡ Quick Install
+
+```bash
+npx fable-skills add all
+```
+
+That's it. All 17 skills + the Fable identity layer land in `~/.claude/` — no cloning, no file copying. Open Claude Code and type `/fable-` to confirm.
+
+Install selectively:
+
+```bash
+npx fable-skills add security          # one skill
+npx fable-skills add backend database  # a few
+npx fable-skills list                  # see what's available
+npx fable-skills remove seo            # uninstall one
+```
+
+Requires Node.js ≥ 16. Works on macOS, Linux, and Windows.
 
 ---
 
