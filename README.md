@@ -7,6 +7,7 @@
 <p>
   <a href="#-installation"><img src="https://img.shields.io/badge/Setup-1_command-FF5E8A?style=for-the-badge&logo=rocket&logoColor=white" alt="Setup in 1 command"/></a>
   <a href="#-the-skill-arsenal"><img src="https://img.shields.io/badge/Skills-17-B06AFF?style=for-the-badge&logo=anthropic&logoColor=white" alt="17 skills"/></a>
+  <a href="https://www.npmjs.com/package/fable-skills"><img src="https://img.shields.io/badge/npm-fable--skills-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm package"/></a>
   <a href="#-license"><img src="https://img.shields.io/badge/License-MIT-6A8BFF?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License"/></a>
   <a href="#-contributing"><img src="https://img.shields.io/badge/PRs-welcome-FF8A3D?style=for-the-badge&logo=github&logoColor=white" alt="PRs welcome"/></a>
 </p>
