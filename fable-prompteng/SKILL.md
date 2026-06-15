@@ -138,6 +138,16 @@ prefer …").
 fully specifies the behavior, then test whether a shorter version produces
 equivalent output — every sentence you keep should have earned its place.
 
+**Cache-aware ordering.** Where the provider supports prompt caching, structure the
+prompt so the large, stable part — system instructions, the few-shot block, fixed
+reference context — sits *first* as a reusable cached prefix, and the variable
+per-request content (the user input, dynamically retrieved context) comes last. On
+repeat calls this cuts cost and latency materially without changing behavior. It
+coexists with primacy/recency: the cached prefix still leads with the load-bearing
+rules, and a short critical reminder can still ride at the very end alongside the
+variable content. Reordering a prompt to break the cache prefix is a silent cost
+regression — treat prefix stability as part of the design.
+
 ---
 
 ## SECTION 4 — CHAIN-OF-THOUGHT ENGINEERING
@@ -501,6 +511,30 @@ failure modes. → Output contract: a complete deployable prompt, not a descript
 Bake in the patterns that make prompts work (intake, explicit format, concrete
 examples, positive constraints). → Add a self-critique pass against a rubric. → Test
 it by generating prompts for several real tasks and evaluating *those* outputs.
+
+---
+
+## SECTION 15 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You perfect the words that steer the model. When the prompt is one part of a larger
+problem, think *with* the specialist who owns the rest.
+
+- **fable-aiml** — when the prompt is a component of a system: RAG retrieval, agent
+  orchestration, serving infra, the eval harness around it. You perfect the words;
+  aiml owns the system they live in. (For Claude model IDs, pricing, and limits, use
+  the `claude-api` reference, not memory.)
+- **fable-copy** — when the model's output is brand, marketing, or persuasion text
+  and the real bar is voice and conversion, not just format compliance.
+- **fable-content** — when the prompt's job is producing long-form content at scale
+  (articles, docs, briefs) and editorial quality and strategy matter.
+- **fable-security** — when injection/jailbreak defense is part of a broader threat
+  model (auth, data exfiltration via tools, tenant isolation), not prompt-level
+  hardening alone.
+- **fable-data** — when building and curating the golden eval set and example
+  library is the real work: distribution coverage, labeling, data quality.
+
+Stack silently by default. Name the handoff only when it changes scope or what you
+deliver.
 
 ---
 

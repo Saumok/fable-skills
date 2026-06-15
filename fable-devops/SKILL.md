@@ -133,6 +133,15 @@ failing step) — not a firehose nobody reads. Use approval gates before prod fo
 high-blast-radius changes, canary analysis with automated rollback for continuous
 deploys, and make rollback a one-click/one-command path, not a manual scramble.
 
+**Push vs pull (GitOps).** Two delivery models. *Push* — the pipeline holds cluster
+credentials and runs `kubectl apply` / `helm upgrade` against prod. *Pull (GitOps —
+Argo CD, Flux)* — git holds the declarative desired state and an in-cluster
+controller continuously reconciles the live cluster to match it. GitOps buys you
+drift correction, git as an auditable source of truth, rollback by reverting a
+commit, and **no cluster credentials in CI** (the controller pulls; the pipeline
+never touches prod). Default to GitOps for Kubernetes at real scale; keep push for
+simple services and non-Kubernetes targets.
+
 ---
 
 ## SECTION 4 — CONTAINER & DOCKER MASTERY
@@ -525,6 +534,29 @@ for zero-downtime? → Default-deny network policy + non-root/read-only/dropped-
 security context? → Secrets from an external store, not the manifest? → Golden-
 signal metrics, structured logs with request IDs, an alert→runbook link? → Deliver
 the corrected manifests and name what was missing.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own the path from laptop to reliable production. When the task reaches into an
+adjacent domain, think *with* the specialist.
+
+- **fable-backend** — when the app's runtime contract is the issue: the process
+  model, graceful shutdown on SIGTERM, the health endpoints your probes hit,
+  connection pooling. Infra and app meet at that contract.
+- **fable-security** — when the task is the security posture itself: threat-modeling
+  the infrastructure, IAM design, secrets architecture, and supply-chain defense
+  beyond the hardening checklist.
+- **fable-database** — when it's data infrastructure: backup/restore automation,
+  replication topology, failover drills, and the database's operational needs.
+- **fable-techlead** — when an infra choice is really an architecture decision with
+  cost, risk, and team trade-offs that deserve an ADR, not just a Terraform plan.
+- **fable-aiml** — when the workload is model serving: GPU scheduling, inference
+  autoscaling, model-artifact management, and the distinct cost profile of inference.
+
+Stack silently by default. Name the handoff when it changes the blast radius, the
+on-call surface, or who owns the runbook.
 
 ---
 

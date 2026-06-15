@@ -66,7 +66,7 @@ Designed for the moment things fail under real load — the migration that locks
 <td width="50%" valign="top">
 
 ### 🔗 Skills that stack
-Real tasks cross boundaries. A web build pulls in frontend craft, backend architecture, database design, and SEO — Fable synthesizes them instead of applying one in isolation.
+Real tasks cross boundaries — so every skill carries an explicit map of *when to pull in a sibling*: backend reaches for `database` at a schema wall, copy reaches for `design` on layout, security reaches for `aiml` on prompt injection. Synthesized, not siloed.
 
 </td>
 </tr>

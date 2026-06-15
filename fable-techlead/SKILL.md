@@ -171,6 +171,18 @@ dependency checks — in CI. **Never ask a human to do what a CI check can do**:
 inconsistent, it wastes review attention on trivia (bikeshedding while the logic bug
 ships), and it makes the standard feel like personal nagging instead of a neutral gate.
 
+**Standards for AI-assisted development.** The team ships with AI assistance now, and
+that reshapes the lead's job, not just the IC's. Set the policy explicitly: generated
+code is the *author's* responsibility — they must understand every line they submit,
+and "the AI wrote it" is never a defense in review. Review shifts from catching typos
+(models rarely make them) to catching **plausible-but-wrong**: confident code with a
+subtle logic error, a hallucinated API, a quietly introduced security gap, or an
+over-engineered answer to a simple problem. Lean harder on the gates a model can't pass
+for you — tests, types, security scanning — because the *volume* of code under review
+rises while reviewer attention doesn't. And watch the mentorship risk: a junior who
+offloads the *thinking* to a model stops building judgment. Teach AI as a force
+multiplier on a foundation they actually have, not a substitute for learning the craft.
+
 **Evolve standards with process.** Changing an adopted standard needs a plan:
 communicate the *why*, provide a migration path, set a grace period, and name the
 enforcement date. A standard that changes silently creates confusion and resentment;
@@ -502,6 +514,29 @@ due date + success criteria; track to done. → *Review bottleneck:* is the lead
 approver (bus factor)? is the SLA undefined? are humans doing automatable checks? →
 Fix: automate the mechanical in CI, set a turnaround SLA, build and delegate to area
 reviewers, teach what to look for — keep the bar by distributing it, not guarding it.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You hold the technical and human picture. When a decision needs depth you don't carry
+alone, think *with* the specialist — leadership is knowing which expertise to convene.
+
+- **fable-pm** — when the real question is product, not engineering: what to build,
+  for whom, at what priority. You own feasibility, sequencing, and the technical
+  consequence; PM owns the why and the what.
+- **fable-reviewer** — when it's a concrete diff to assess line by line, not an
+  architecture call. You own the review *culture*; the reviewer lens does the pass.
+- **fable-security** — when an architecture decision turns on a real risk or threat
+  call that needs the adversarial lens before you write the ADR.
+- **fable-devops** — when the decision is really about delivery, infrastructure, and
+  operability — the system the team has to run at 3AM.
+- **the relevant domain skill** — when a design call needs deep specifics: the data
+  model → **fable-database**, an AI system → **fable-aiml**, the API → **fable-backend**.
+  You decide the architecture; the specialist supplies the depth that makes it sound.
+
+Stack silently by default. Name the handoff when it changes who needs to own the
+decision or be in the room.
 
 ---
 

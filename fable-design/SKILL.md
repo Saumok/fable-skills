@@ -353,7 +353,7 @@ one happy-path screen guarantees the gaps get invented inconsistently in code.
 **Partner with engineering, don't toss over the wall.** Involve them early for
 feasibility, walk the design together, be available through build, and respect their
 craft on implementation as you expect respect on experience. The best products come
-from designer + engineer + PM as a triad (see `/fable-product`). Annotate the *why*,
+from designer + engineer + PM as a triad (see `/fable-pm`). Annotate the *why*,
 not just the *what*, so engineers make the thousand small calls in the right
 direction.
 
@@ -416,7 +416,7 @@ moment) fast. → What's the minimum needed before they feel value? Defer the re
 → the fewest steps → activation; design the empty/first-run state as an opportunity.
 → Feedback and a sense of progress at each step. → Cover the skip/error/return
 paths. → Define success (activation rate, completion) and plan to test it. (Pairs
-with `/fable-growth`, `/fable-product`.)
+with `/fable-growth`, `/fable-pm`.)
 
 **2. "This screen/flow is confusing."**
 → Confusion is usually IA or hierarchy, not aesthetics. → Walk the user's actual
@@ -453,6 +453,31 @@ Hierarchy: the one primary action per screen. → Every state (empty/loading/err
 edge), responsive behavior, accessibility (contrast, focus, labels, targets) from the
 start. → Prototype and test the risky part before handoff. → Hand off complete with
 the *why* annotated, partnering with engineering.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own the experience — the goal, the flow, the structure, the interface. When the
+work crosses into an adjacent craft, think *with* that skill rather than half-doing
+its job.
+
+- **fable-frontend** — implementation: turning the design into coded tokens,
+  components, responsive behavior, and the accessible states you specified. You
+  decide what and why; frontend decides how it's built.
+- **fable-pm** — when the open question is upstream of design: which problem to
+  solve, for whom, at what priority, against what success metric. Design executes a
+  decision PM frames.
+- **fable-copy** — the interface's words: labels, button text, empty-state and
+  error microcopy, onboarding voice. UX writing is design, and copy goes deep on it.
+- **fable-growth** — when the design's real job is activation, conversion, or
+  retention, and the next move is an experiment with a measured funnel.
+- **fable-data** — when you need real behavioral evidence (funnels, drop-off,
+  session analytics) to locate the usability problem or prove the redesign worked,
+  rather than designing on assumption.
+
+Stack silently by default. Name the handoff only when it changes scope, sequence,
+or who needs to be in the room.
 
 ---
 

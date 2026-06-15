@@ -209,7 +209,13 @@ task. Complexity you add is failure surface you own.
 descriptions, parameter schemas, return formats, and error messages all shape how
 the LLM uses them. Make each tool unmistakably clear: a precise description, typed
 parameters, a structured return, and an error message that tells the model how to
-recover (not a stack trace).
+recover (not a stack trace). Standardize tool and context integration over **MCP
+(Model Context Protocol)** where you can — one server exposes tools, resources, and
+prompts to any MCP-aware client, so you build an integration once instead of
+re-wiring it per app. The same tool-clarity rules apply to the schemas you expose
+over it; a vague MCP tool is as confusing to the model as a vague local one. Mind
+the new trust boundary, too: a tool surfaced over MCP is third-party code and
+third-party data — see Section 9 on treating its output as untrusted.
 
 **Memory systems.** **Working** (current context), **episodic** (conversation
 history, summarized when long), **semantic** (retrieved facts), **procedural**
@@ -288,6 +294,15 @@ Validate, don't trust.
 **Chain-of-thought.** Improves accuracy on complex reasoning; wastes tokens (and
 can hurt) on simple classification. Use zero-shot CoT for general reasoning,
 few-shot CoT when the reasoning *style* matters. Don't pay for CoT you don't need.
+
+**Reasoning models.** The frontier now includes extended-thinking / reasoning-token
+models that internalize CoT. For genuinely hard multi-step problems, a reasoning
+model with a plain prompt often beats hand-built CoT scaffolding on a base model —
+and bolting "think step by step" onto a model that already reasons can *hurt*. Match
+the tool: a reasoning model for hard reasoning (you pay in latency and thinking
+tokens), a fast non-reasoning model for extraction, classification, and routing.
+This reshapes the capability–cost–latency triangle in Section 6 — reasoning is a
+fourth axis, not a free upgrade.
 
 **Context-length management.** Summarize long conversations, window long
 documents, and know that quality degrades non-linearly past certain lengths per
@@ -471,6 +486,32 @@ guardrails / claim verification for high-stakes outputs. → Surface uncertainty
 insert human review at the high-stakes / low-confidence points. → Check for prompt
 injection in the retrieved corpus. → Add the failing cases to the eval set so the
 fix is verified and can't silently regress.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own the AI system end to end — task, eval, retrieval, agents, serving. When the
+work goes deep in an adjacent craft, think *with* the specialist.
+
+- **fable-prompteng** — when the system prompt, the chain structure, the agent's
+  reasoning prompts, or eval-judge prompt design is the deep work. You build the
+  system; prompteng goes deepest on the words inside it. (For Anthropic/Claude model
+  specifics — IDs, pricing, limits — use the `claude-api` reference, not memory.)
+- **fable-backend** — when serving is the task: inference endpoints, queues,
+  autoscaling, the API around the model, vector-store operations and pooling.
+- **fable-data** — when the bottleneck is the data: training/eval-set construction,
+  feature pipelines, labeling, dataset quality and lineage.
+- **fable-security** — when the threat is adversarial: prompt injection (including
+  via the RAG corpus and MCP tools), jailbreaks, data exfiltration through tools,
+  PII in prompts and logs, model and dependency supply chain.
+- **fable-frontend** — when building the AI UX: token streaming, agent/tool-state
+  surfaces, latency masking, and graceful failure in the interface.
+- **fable-devops** — when GPU infrastructure, model deployment, inference
+  autoscaling, and cost-ops are what's blocking the ship.
+
+Stack silently by default. Name the handoff only when it changes scope, cost, or the
+risk profile.
 
 ---
 

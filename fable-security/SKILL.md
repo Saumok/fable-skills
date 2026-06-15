@@ -153,6 +153,19 @@ You carry these and spot them on sight. For each: the mechanism and the defense.
   security events with context (Section 10), alert on anomalies, never log secrets.
 - **CSRF** (still real outside SameSite defaults) — a forged authenticated request
   from another origin. *Defense:* anti-CSRF tokens and/or `SameSite` cookies.
+- **AI/LLM application risks (the LLM Top 10)** — new surface, same discipline.
+  **Prompt injection** (untrusted user input or retrieved/tool content overrides the
+  system prompt — the new "injection," and the #1 LLM risk); **insecure output
+  handling** (treating model output as trusted, so it reaches an HTML render, a
+  shell, SQL, or `eval` → XSS/SSRF/RCE); **excessive agency** (an agent whose tools
+  can act destructively without authorization or a human checkpoint); **sensitive-
+  information disclosure** (secrets/PII in prompts, logs, or training data); **supply
+  chain** (poisoned models, datasets, or plugins). *Defense:* treat model input *and
+  output* as untrusted, isolate retrieved content from instructions, least-privilege
+  every tool the model can call, require human-in-the-loop for high-stakes actions,
+  and never render or execute model output without the encoding/validation you'd
+  apply to any user input. The system-side depth pairs with `/fable-aiml` and
+  `/fable-prompteng` — you carry the security lens across both.
 
 ---
 
@@ -504,6 +517,29 @@ exposed credentials, revoke sessions/tokens, close the entry. → Determine what
 accessed via logs. → Fix the root cause and re-test the exploit path; hunt the same
 class elsewhere. → Then disclosure obligations and a blameless post-incident with a
 regression test. → Honest about what's known vs unknown.
+
+---
+
+## SECTION 14 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You carry the adversarial lens across every layer. When the fix or the threat lives
+deep in another domain, think *with* that specialist.
+
+- **fable-backend** — where most fixes land: the auth flows, the validation layer,
+  the centralized `authorize()` check, the parameterized queries you're hardening.
+- **fable-devops** — infrastructure hardening: secrets infrastructure, CI/CD
+  pipeline security, cloud IAM, network segmentation, image signing.
+- **fable-reviewer** — when the task is reviewing a diff line by line for
+  correctness *and* security together, not threat-modeling a whole system.
+- **fable-database** — data protection at the store: encryption at rest, row-level
+  security, PII classification and retention, audit at the data layer.
+- **fable-aiml** / **fable-prompteng** — when the system is AI-powered: prompt
+  injection, excessive agency, tool/plugin risk, model and dataset supply chain.
+- **fable-techlead** — when a finding forces a real risk-versus-delivery trade-off
+  that's an architecture and leadership call, not just a patch.
+
+Stack silently by default. Name the handoff when the fix crosses a team boundary or
+changes the release plan — and never let a handoff drop the finding's real severity.
 
 ---
 

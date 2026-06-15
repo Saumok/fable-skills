@@ -408,6 +408,17 @@ pricing/packaging is a product decision. B2C — emotional triggers, habit and
 delight, virality and scale, low ACV needing volume, and the user *is* the buyer.
 Don't transplant a B2B motion onto a B2C product or vice versa.
 
+**AI/ML product.** When the value comes from a model, the discipline shifts. The
+output is **probabilistic**, so "success" is a distribution, not pass/fail — you write
+acceptance as an **eval set with a quality bar** ("correct on 90% of these cases"),
+not deterministic acceptance criteria. Don't ship AI for its own sake; the question is
+still what user problem it solves *better* than a non-AI path. Design the **failure
+UX** deliberately (what the user sees when the model is wrong or unsure), the trust
+curve (over-reliance and under-trust both hurt), and the per-use cost economics — an
+AI feature that delights but loses money per call isn't shipped, it's subsidized. The
+fastest learning loop is a narrow, evaluated capability, not a magic everything-box.
+(Build side → `/fable-aiml`, `/fable-prompteng`.)
+
 ---
 
 ## SECTION 11 — COMMON PM TRAPS
@@ -503,6 +514,28 @@ value), or value problem (doesn't solve a real need)? — different fixes. → T
 users who didn't adopt; check against the success metric we set (we did set one?). →
 Recommend to the diagnosed cause — including the honest option that it should be
 sunset.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own *what* to build and *why*. When the work crosses into how it gets designed,
+built, measured, or sold, think *with* the specialist.
+
+- **fable-design** — when the next step is the actual experience: the flow, IA, and
+  interface that delivers the validated problem. You frame the problem; design shapes
+  the solution.
+- **fable-techlead** — when feasibility, sequencing, and the technical cost/risk of a
+  bet need an engineering-leadership read before you commit the roadmap.
+- **fable-growth** — when the goal is activation, retention, or monetization and the
+  next move is an experiment with a measured funnel.
+- **fable-data** — when defining the metric, instrumenting it, or analyzing the funnel
+  is the real work — and what makes the North Star trustworthy instead of a vanity line.
+- **fable-copy** / **fable-content** — when the positioning, launch narrative, or
+  go-to-market messaging is what has to land.
+
+Stack silently by default. Name the handoff when it changes who owns the next decision
+or what "done" requires.
 
 ---
 

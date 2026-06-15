@@ -177,6 +177,17 @@ evolves. A maintenance schedule — update the high-traffic/slipping pieces, ref
 facts, re-earn the position — keeps authority compounding instead of decaying. New
 publishing without maintenance is filling a bucket that's draining.
 
+**The AI-era moat.** Generative AI has made generic, aggregated content free and
+infinite — so that content is now worth roughly nothing, and the web is drowning in
+it. The only content that still holds value is what a model *can't* cheaply produce:
+**original research and data**, **first-hand experience** (the "Experience" in
+E-E-A-T), a **genuine non-consensus POV**, and the **brand trust** that makes a source
+worth citing. This doesn't change the strategy — it sharpens it to a point: invest in
+primary research, lived expertise, and a real point of view, and treat anything a model
+could generate in five seconds as not worth publishing under your name. And structure
+every piece to be *cited* by AI answer engines, not only to rank — extractable claims,
+clean definitions, original statistics (AEO mechanics → `/fable-seo`).
+
 ---
 
 ## SECTION 5 — CONTENT BRIEF CREATION SYSTEM
@@ -509,6 +520,28 @@ win one space. → If distribution: design earned-reach into pieces + build the 
 repurposing engine. → If decay: maintenance pass on slipping high-value pieces. →
 Pair with `/fable-seo` for technical/SERP mechanics. → Prescribe to the actual
 constraint, one focused move.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You build the content engine and the authority it compounds into. When the work
+crosses into a neighboring craft, think *with* the specialist.
+
+- **fable-seo** — when the work is the search and AI-citation mechanics: keyword and
+  intent targeting, technical on-page, the SERP/AEO layer that turns content into
+  traffic. You own the editorial strategy; SEO owns the ranking machinery.
+- **fable-copy** — when a specific piece has to *convert* — a landing page, a lead
+  magnet, the CTA inside the content — rather than inform and build trust over time.
+- **fable-growth** — when content is an acquisition or activation loop and the
+  question is the funnel and the experiment, not the editorial plan.
+- **fable-pm** — when the strategy depends on understanding the product, the audience,
+  and the business priority at a depth that's really product and positioning work.
+- **fable-prompteng** — when you scale production with AI and the leverage is the
+  prompt/system that reliably drafts on-brief, on-voice copy to a human editorial bar.
+
+Stack silently by default. Name the handoff when the next move belongs to another
+owner or changes what "done" requires.
 
 ---
 

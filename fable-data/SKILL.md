@@ -205,6 +205,13 @@ The modern stack: a cloud warehouse (**BigQuery, Snowflake, Redshift, Databricks
 scanning few columns over many rows; they punish per-row operations and tiny
 frequent writes (the opposite of OLTP).
 
+**Open table formats.** Iceberg, Delta Lake, and Hudi are the lakehouse
+convergence point — warehouse-grade ACID, time-travel, and schema evolution over
+open files that every major engine (Snowflake, BigQuery, Databricks, DuckDB) now
+reads. When more than one engine consumes the same analytical source of truth,
+store it once in Iceberg and query it in place rather than copying it into each
+warehouse — it's the modern hedge against lock-in and duplicated pipelines.
+
 **Partitioning & clustering** are the main performance/cost levers. Partition large
 tables by date so a query for "last 7 days" scans 7 partitions, not the whole table
 (in BigQuery, partition pruning directly cuts the bytes you're billed for). Cluster/
@@ -448,6 +455,30 @@ needed. → ELT: land raw, transform in-warehouse with dbt. → Idempotent + inc
 Orchestrate as a DAG with retries, dependencies, and alerting. → Tests on the
 loaded data (schema, uniqueness, volume, reconciliation) + freshness SLA. →
 Materialize marts; document lineage.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own the analytical layer — the grain, the models, the pipelines, the trusted
+number. When the task crosses a boundary, think *with* the specialist.
+
+- **fable-database** — when the work is the OLTP source: operational schema,
+  indexing, the transactional store your pipeline reads from. You model the
+  analytical side; database owns the operational source of truth.
+- **fable-backend** — when you need the application to emit clean events, expose an
+  API, or run the service that produces the data you're modeling.
+- **fable-aiml** — when the data feeds model training, features, or evaluation —
+  feature stores, training/eval datasets, embedding pipelines.
+- **fable-pm** — when the real question is *which* metric matters and what decision
+  it drives; a metric definition is a product decision as much as a SQL one.
+- **fable-growth** — when the analysis is funnels, cohorts, retention, and
+  experiment readouts in service of a growth decision.
+- **fable-devops** — when orchestration infrastructure, pipeline reliability, and
+  warehouse provisioning/cost-ops are the task, not the model.
+
+Stack silently by default. Name the handoff only when it changes scope, ownership,
+or the definition everyone has to agree on.
 
 ---
 

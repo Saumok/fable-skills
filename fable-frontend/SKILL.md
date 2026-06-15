@@ -161,7 +161,12 @@ Build in this order, every time:
 6. **Motion.** Animate only with reason. Default to `transform` and `opacity`
    (compositor-only, cheap). Entrances ease-out, exits ease-in, interactive
    elements spring/ease-out; 150–250ms for UI feedback, longer only for large
-   surfaces. Respect `prefers-reduced-motion`.
+   surfaces. Respect `prefers-reduced-motion`. For state changes, list reorders,
+   and route transitions, reach for the **View Transitions API** — let the browser
+   tween between two DOM states instead of hand-orchestrating keyframes — with a
+   no-VT fallback and reduced-motion gating. Scroll-driven animations
+   (`animation-timeline`) belong to the compositor too; use them over scroll-
+   listener JS.
 7. **Define the API.** Explicit, minimal props/variants — `variant`, `size`,
    `disabled`, `loading`, plus composition via children/slots. Document each
    variant and why it exists. A prop with no clear use case doesn't ship.
@@ -400,6 +405,31 @@ semantic structure before styling. → Identify components vs one-offs; reuse at
 error). → Make it responsive — the frame is one width; define the behavior
 between breakpoints. → Verify contrast and keyboard before calling it done. →
 Flag any pixel the design left ambiguous rather than inventing silently.
+
+---
+
+## SECTION 11 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own how the interface looks, feels, and performs. When the task crosses into
+an adjacent craft, think *with* that skill rather than guessing at it.
+
+- **fable-design** — when the real question is the user flow, information
+  architecture, or interaction model — *what* the screen should do and why —
+  before you decide how it looks. Design sets the problem; you render the answer.
+- **fable-copy** — when the microcopy is the UX: button labels, empty states,
+  error messages, onboarding tips. The words are part of the interface, not a
+  caption added later.
+- **fable-backend** — when the component needs an API contract, real data shape,
+  auth/session state, or a pagination model defined before it can be built right.
+- **fable-webbuilder** — when a component grows into an app: routing, data layer,
+  deployment, the whole stack.
+- **fable-seo** — when rendering strategy (SSG/SSR/streaming) and Core Web Vitals
+  are being graded by search; LCP and CLS are SEO currency, not just polish.
+- **fable-aiml** — when you're building UI around an LLM or AI feature: streaming
+  token-by-token, agent/tool states, optimistic latency, graceful failure.
+
+Stack silently by default — fold the judgment in. Surface the handoff only when it
+changes scope or what you'll deliver.
 
 ---
 

@@ -355,6 +355,17 @@ structuring content so LLMs (retrieving live or trained on the web) **represent 
 cite your brand accurately**. The unit of success shifts from "rank #1" to "be the
 quoted, attributed source."
 
+**What Google actually said (May 2026).** Google's first official guide to its
+generative features settled the over-engineering panic: **`llms.txt`, AI-specific
+content rewriting, and special "AI schema" are not required** — AI Overviews and AI
+Mode run on the **core Search ranking systems**, so "optimizing for AI search is still
+SEO." The foundations don't change (useful content, crawlable pages, clear structure,
+a trustworthy page experience); what changes is the *unit of success* — being the
+cited, extractable source inside the answer, not the #1 blue link. So don't sell a
+client a parallel "AI SEO" toolkit or chase `llms.txt` as a ranking hack; do the real
+thing well and make every answer machine-extractable. This is the skill's own
+principle, now confirmed by the platform: tactics churn, usefulness doesn't.
+
 **Signals that influence AI citation:** clear, **extractable** answers (a concise
 claim up front, then support); strong **E-E-A-T** and factual accuracy (models and
 their rerankers favor trustworthy sources); **structured data** and clean semantic
@@ -405,7 +416,11 @@ result/enhancement status. Third-party tools estimate; GSC reports.
 first touch in a multi-touch path, branded search captures demand other channels
 created, and the *absence* of a click (an AI Overview answered it, a zero-click
 SERP) is invisible. You communicate SEO value with this nuance — trend lines,
-assisted conversions, share-of-voice — rather than a false single-number ROI.
+assisted conversions, share-of-voice — rather than a false single-number ROI. And you
+read the new pattern correctly: **rising impressions with flat or falling clicks is
+usually AI summarization, not a ranking loss** — AI Overviews now cut clicks to even
+the #1 result materially — so diagnose it as zero-click reality and pivot to citation/
+share-of-voice before "fixing" a ranking that never dropped.
 
 **Cadence.** Monthly for trend monitoring, quarterly for strategy and the slow-
 moving wins. Report **trends over time**, not point-in-time snapshots (SEO moves
@@ -536,6 +551,28 @@ corroborated across authoritative sites (reviews, comparisons, original data oth
 cite) — AI synthesizes across sources. → Ensure crawlable/renderable (SSR) so live-
 retrieval engines can fetch it. → Track brand share-of-voice in AI answers, not
 just rankings. → Be honest: influence, not control.
+
+---
+
+## SECTION 13 — SKILL STACKING (WHEN TO PULL IN ANOTHER FABLE SKILL)
+
+You own how a site earns and keeps search visibility. When the work crosses into a
+neighboring craft, think *with* the specialist.
+
+- **fable-content** — when the work is the editorial engine behind topical authority:
+  the calendar, the pillar/cluster production, editorial quality at scale. You set the
+  targets and the intent map; content produces against them.
+- **fable-copy** — when the page has to *convert* the click it earns: the title that
+  wins the SERP click, the on-page persuasion, the CTA. Ranking is half the job.
+- **fable-frontend** — when the fix is Core Web Vitals, rendering strategy (SSR/SSG),
+  or JS-SEO, and it lives in the front-end build.
+- **fable-webbuilder** — when it's a site migration, a rebuild, or the technical
+  implementation of the architecture and redirect map.
+- **fable-data** — when measurement and attribution need real analytics plumbing:
+  GSC/GA pipelines, funnels, and an honest organic-ROI model.
+
+Stack silently by default. Name the handoff when a fix depends on another team's
+build or changes the content plan.
 
 ---
 
