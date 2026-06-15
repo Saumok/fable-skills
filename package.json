@@ -17,11 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Saumok/fable-skills.git"
+    "url": "git+https://github.com/Saumok/fable-skills.git"
   },
   "license": "MIT",
   "bin": {
-    "fable-skills": "./bin/cli.js"
+    "fable-skills": "bin/cli.js"
   },
   "files": [
     "bin/",
