@@ -148,23 +148,43 @@ CLAUDE.md  ──▶  loads identity (CLAUDE-FABLE-5.md)
 
 ## 📦 Installation
 
-> ⏱️ **~2 minutes.** Skills install into `~/.claude/skills/`. The identity + orchestrator install into `~/.claude/`.
+> ⏱️ **One command.** No cloning, no copying files manually.
 
-### Option A — Clone the whole pack (recommended)
+### Option A — npx (recommended)
 
-<details open>
+```bash
+# Install everything — all 17 skills + the Fable identity layer
+npx fable-skills add all
+
+# Install one skill
+npx fable-skills add security
+
+# Install a few
+npx fable-skills add backend database devops
+
+# See what's available
+npx fable-skills list
+
+# Remove a skill
+npx fable-skills remove seo
+```
+
+Works on macOS, Linux, and Windows. Requires Node.js ≥ 16 (already installed if you use npm).
+
+> ✅ **Verify:** open Claude Code and type `/fable-` — your installed skills appear in autocomplete.
+
+---
+
+### Option B — Clone manually
+
+<details>
 <summary><b>🍎 macOS / 🐧 Linux</b></summary>
 
 ```bash
-# 1. Clone the repo
 git clone https://github.com/Saumok/fable-skills.git
 cd fable-skills
-
-# 2. Install every skill into Claude Code
 mkdir -p ~/.claude/skills
 cp -r fable-* ~/.claude/skills/
-
-# 3. Install the identity layer + orchestrator
 mkdir -p ~/.claude/skills/fable-identity
 cp CLAUDE-FABLE-5.md ~/.claude/skills/fable-identity/
 cp CLAUDE.md ~/.claude/CLAUDE.md
@@ -176,15 +196,10 @@ cp CLAUDE.md ~/.claude/CLAUDE.md
 <summary><b>🪟 Windows (PowerShell)</b></summary>
 
 ```powershell
-# 1. Clone the repo
 git clone https://github.com/Saumok/fable-skills.git
 Set-Location fable-skills
-
-# 2. Install every skill into Claude Code
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
 Copy-Item -Recurse -Force .\fable-* "$env:USERPROFILE\.claude\skills\"
-
-# 3. Install the identity layer + orchestrator
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills\fable-identity" | Out-Null
 Copy-Item -Force .\CLAUDE-FABLE-5.md "$env:USERPROFILE\.claude\skills\fable-identity\"
 Copy-Item -Force .\CLAUDE.md "$env:USERPROFILE\.claude\CLAUDE.md"
@@ -192,27 +207,15 @@ Copy-Item -Force .\CLAUDE.md "$env:USERPROFILE\.claude\CLAUDE.md"
 
 </details>
 
-### Option B — Install a single skill
-
-Only want the security auditor? Copy just that folder:
-
-```bash
-cp -r fable-security ~/.claude/skills/
-```
-
-```powershell
-Copy-Item -Recurse -Force .\fable-security "$env:USERPROFILE\.claude\skills\"
-```
-
 ### Option C — Per-project install
 
-Want Fable only inside one repo? Drop the skills and a project `CLAUDE.md` under `.claude/` in your project root:
+Want Fable only inside one repo? Drop the skills under `.claude/` in your project root:
 
 ```bash
-mkdir -p .claude/skills && cp -r fable-* .claude/skills/ && cp CLAUDE.md .claude/CLAUDE.md
+npx fable-skills add all   # then move ~/.claude/skills/fable-* to .claude/skills/
 ```
 
-> ✅ **Verify:** open Claude Code and type `/fable-` — you should see the skills appear in autocomplete.
+Or clone and copy manually into `.claude/skills/` + `.claude/CLAUDE.md`.
 
 ---
 

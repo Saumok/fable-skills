@@ -1,0 +1,51 @@
+{
+  "name": "fable-skills",
+  "version": "2.0.0",
+  "description": "17 expert minds for Claude Code — summon a world-class specialist into your session with one command",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skills",
+    "ai",
+    "anthropic",
+    "developer-tools",
+    "prompt-engineering"
+  ],
+  "homepage": "https://github.com/Saumok/fable-skills",
+  "bugs": {
+    "url": "https://github.com/Saumok/fable-skills/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Saumok/fable-skills.git"
+  },
+  "license": "MIT",
+  "bin": {
+    "fable-skills": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "fable-webbuilder/",
+    "fable-frontend/",
+    "fable-design/",
+    "fable-backend/",
+    "fable-database/",
+    "fable-data/",
+    "fable-aiml/",
+    "fable-prompteng/",
+    "fable-security/",
+    "fable-devops/",
+    "fable-reviewer/",
+    "fable-techlead/",
+    "fable-pm/",
+    "fable-seo/",
+    "fable-copy/",
+    "fable-growth/",
+    "fable-content/",
+    "CLAUDE.md",
+    "CLAUDE-FABLE-5.md"
+  ],
+  "engines": {
+    "node": ">=16"
+  }
+}
